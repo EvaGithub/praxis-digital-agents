@@ -1,0 +1,47 @@
+<svg width="680" height="514" viewBox="0 0 680 514" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="#5B6570" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<rect width="680" height="514" fill="#FFFFFF"/>
+
+<rect x="210" y="40" width="250" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+<text x="335" y="60" text-anchor="middle" font-size="15" font-weight="600" fill="#26215C">Orchestrator</text>
+<text x="335" y="78" text-anchor="middle" font-size="12" fill="#3C3489">ReAct: perceive, think, delegate</text>
+<line x1="335" y1="96" x2="335" y2="128" stroke="#5B6570" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="210" y="130" width="250" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<text x="335" y="150" text-anchor="middle" font-size="15" font-weight="600" fill="#04342C">Scout agent</text>
+<text x="335" y="168" text-anchor="middle" font-size="12" fill="#085041">Finds candidate practices</text>
+<line x1="335" y1="186" x2="335" y2="224" stroke="#5B6570" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="210" y="226" width="250" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<text x="335" y="246" text-anchor="middle" font-size="15" font-weight="600" fill="#04342C">Audit team</text>
+<text x="335" y="264" text-anchor="middle" font-size="12" fill="#085041">3 parallel workers, 12 checks</text>
+<line x1="335" y1="282" x2="335" y2="320" stroke="#5B6570" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="210" y="322" width="250" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<text x="335" y="342" text-anchor="middle" font-size="15" font-weight="600" fill="#04342C">Reporter agent</text>
+<text x="335" y="360" text-anchor="middle" font-size="12" fill="#085041">Narrative, report, demo site</text>
+<line x1="335" y1="378" x2="335" y2="416" stroke="#5B6570" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="210" y="418" width="250" height="56" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+<text x="335" y="438" text-anchor="middle" font-size="15" font-weight="600" fill="#412402">Human approval gate</text>
+<text x="335" y="456" text-anchor="middle" font-size="12" fill="#633806">Drafts only, no send tool</text>
+
+<line x1="460" y1="254" x2="478" y2="254" stroke="#5B6570" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="480" y="226" width="155" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
+<text x="557" y="246" text-anchor="middle" font-size="15" font-weight="600" fill="#501313">Guardrail</text>
+<text x="557" y="264" text-anchor="middle" font-size="12" fill="#791F1F">cleans web text</text>
+
+<line x1="460" y1="336" x2="478" y2="324" stroke="#5B6570" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="480" y="300" width="155" height="48" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<text x="557" y="320" text-anchor="middle" font-size="15" font-weight="600" fill="#042C53">Legal RAG</text>
+<text x="557" y="338" text-anchor="middle" font-size="12" fill="#0C447C">nDSG + UWG facts</text>
+
+<line x1="460" y1="364" x2="478" y2="380" stroke="#5B6570" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="480" y="356" width="155" height="48" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1"/>
+<text x="557" y="376" text-anchor="middle" font-size="15" font-weight="600" fill="#173404">Eval gate</text>
+<text x="557" y="394" text-anchor="middle" font-size="12" fill="#27500A">verifies claims</text>
+</svg>

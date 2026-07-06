@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PraxisDigital — Multi-Agent Audit System for Swiss Medical Practices</title>
+<meta name="description" content="Agent Engineering Bootcamp capstone: a guardrailed, eval-gated multi-agent system that finds Swiss medical practices with weak websites and builds their evidence package.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#141B23; --paper:#F7F8F6; --line:#E2E5E0; --mut:#5B6570; --teal:#0E6E64; --teal-soft:#E3EFED; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--paper); color:var(--ink); line-height:1.65; }
+.wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+nav { border-bottom:1px solid var(--line); }
+nav .wrap { display:flex; justify-content:space-between; align-items:center; height:64px; }
+.brand { font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem; letter-spacing:-0.02em; }
+.brand span { color:var(--teal); }
+nav a.gh { font-size:0.85rem; font-weight:600; color:var(--ink); text-decoration:none;
+  border:1.5px solid var(--ink); padding:7px 16px; border-radius:100px; }
+nav a.gh:hover { background:var(--ink); color:#fff; }
+
+.hero { padding:84px 0 60px; }
+.eyebrow { font-size:0.75rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); margin-bottom:18px; }
+h1 { font-family:'Space Grotesk'; font-weight:700; font-size:clamp(2.2rem,5vw,3.4rem); letter-spacing:-0.03em; line-height:1.1; max-width:20ch; }
+h1 em { font-style:normal; color:var(--teal); }
+.hero p.lede { max-width:60ch; margin:22px 0 30px; font-size:1.05rem; color:var(--mut); }
+.badges { display:flex; gap:10px; flex-wrap:wrap; }
+.badge { font-size:0.78rem; font-weight:600; padding:6px 14px; border-radius:100px; background:#fff; border:1px solid var(--line); }
+.badge.hot { background:var(--teal-soft); border-color:var(--teal); color:var(--teal); }
+
+h2 { font-family:'Space Grotesk'; font-weight:700; font-size:1.4rem; letter-spacing:-0.02em; margin:0 0 6px; }
+.sec { padding:52px 0; border-top:1px solid var(--line); }
+.sec .sub { color:var(--mut); font-size:0.92rem; margin-bottom:30px; }
+
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+a.card { display:block; background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px;
+  text-decoration:none; color:var(--ink); transition:transform .2s, box-shadow .2s; }
+a.card:hover { transform:translateY(-3px); box-shadow:0 16px 34px -22px rgba(20,27,35,0.35); }
+.card .k { font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); }
+.card h3 { font-family:'Space Grotesk'; font-size:1.12rem; margin:8px 0 6px; }
+.card p { font-size:0.86rem; color:var(--mut); }
+.card .go { display:inline-block; margin-top:14px; font-size:0.84rem; font-weight:600; color:var(--teal); }
+
+.flow { background:var(--ink); color:#E7EDF3; border-radius:18px; padding:36px; overflow-x:auto; }
+.flow pre { font-family:'Space Grotesk',monospace; font-size:0.82rem; line-height:1.7; white-space:pre; }
+.flow .g { color:#7BC5B8; } .flow .r { color:#F0A5A5; } .flow .y { color:#EFD08A; }
+
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.panel { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 26px; }
+.panel h3 { font-family:'Space Grotesk'; font-size:1rem; margin-bottom:10px; }
+.panel ul { list-style:none; }
+.panel li { font-size:0.86rem; color:var(--mut); padding:7px 0 7px 24px; position:relative; border-bottom:1px solid var(--paper); }
+.panel li::before { content:"✓"; position:absolute; left:0; color:var(--teal); font-weight:700; }
+.panel li:last-child { border-bottom:none; }
+
+.case { display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center;
+  background:#fff; border:1px solid var(--line); border-radius:18px; padding:30px 34px; }
+.case .score { font-family:'Space Grotesk'; font-weight:700; font-size:3rem; color:#C73E3E; line-height:1; text-align:center; }
+.case .score small { display:block; font-size:0.7rem; font-weight:600; color:var(--mut); letter-spacing:0.08em; text-transform:uppercase; margin-top:6px; }
+.case p { font-size:0.92rem; color:var(--mut); }
+.case b { color:var(--ink); }
+
+footer { border-top:1px solid var(--line); padding:28px 0 44px; margin-top:30px;
+  font-size:0.8rem; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+@media (max-width:700px) { .grid2 { grid-template-columns:1fr; } .case { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">Praxis<span>Digital</span></div>
+  <a class="gh" href="https://github.com/EvaGithub/praxis-digital-agents">GitHub Repo →</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Agent Engineering Bootcamp · Capstone · ADK 2.0</div>
+  <h1>Evidence beats pitching.<br><em>Agents build the evidence.</em></h1>
+  <p class="lede">A multi-agent system that finds Swiss medical practices with failing websites,
+  audits them against 12 criteria, and autonomously produces their complete evidence package —
+  visual diagnostic report, personalized demo website, and a drafted outreach email that
+  <b>no agent is allowed to send.</b></p>
+  <div class="badges">
+    <span class="badge hot">12/12 evals passing</span>
+    <span class="badge">Agentic RAG: legal grounding</span>
+    <span class="badge">Prompt-injection guardrail</span>
+    <span class="badge">Trajectory-order eval</span>
+    <span class="badge">Human approval gate (UWG-compliant)</span>
+    <span class="badge">Parallel agent fan-out</span>
+  </div>
+</div></header>
+
+<section class="sec"><div class="wrap">
+  <h2>Live artifacts</h2>
+  <p class="sub">Everything below was generated by the pipeline against real Swiss practices — click through.</p>
+  <div class="cards">
+    <a class="card" href="dashboard.html">
+      <div class="k">Operator view</div>
+      <h3>Pipeline Dashboard</h3>
+      <p>All leads with scores, grades, guardrail and eval badges, and links to every artifact.</p>
+      <span class="go">Open dashboard →</span>
+    </a>
+    <a class="card" href="report_hautarzt-herisau.html">
+      <div class="k">Evidence · part 1</div>
+      <h3>Visual Diagnostic Report</h3>
+      <p>Semrush-style audit of a real practice: score gauge, category health bars, 12 severity-coded findings.</p>
+      <span class="go">Open report →</span>
+    </a>
+    <a class="card" href="demo_hautarzt-herisau.html">
+      <div class="k">Evidence · part 2</div>
+      <h3>Generated Demo Website</h3>
+      <p>The "after" picture: a premium, nDSG-aware practice site the agents built from the lead data.</p>
+      <span class="go">Open demo site →</span>
+    </a>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <h2>Architecture</h2>
+  <p class="sub">Six layers — the order is code, not vibes. Full rationale in the <a href="https://github.com/EvaGithub/praxis-digital-agents#readme" style="color:var(--teal)">PRD</a> and <a href="https://github.com/EvaGithub/praxis-digital-agents/blob/main/threat_model.md" style="color:var(--teal)">threat model</a>.</p>
+  <div class="flow"><pre>
+L0  ORCHESTRATOR   LlmAgent · ReAct loop        perceive → think → delegate
+L1  PIPELINE       SequentialAgent              Scout → Audit → Report <span class="y">(enforced order)</span>
+L2  AUDIT TEAM     ParallelAgent                3 workers, concurrent, I/O-bound fan-out
+L3  GUARDRAIL      <span class="r">sanitize_web_content</span>        all scraped text delimited as UNTRUSTED
+L3½ RAG            <span class="g">retrieve_compliance</span>         legal claims cite retrieved docs only
+L4  EVAL GATE      <span class="g">verify_report_claims</span>        no narrative published unverified
+L5  HUMAN GATE     outbox/ drafts only          <span class="r">no send tool exists</span> — UWG Art. 3 lit. o
+DEPLOY             adk web · Vertex AI Agent Engine</pre></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <h2>Case study</h2>
+  <p class="sub">The practice that started it all — excellent doctors, four languages on staff, one broken website.</p>
+  <div class="case">
+    <div class="score">8/90<small>Grade F</small></div>
+    <p><b>hautarzt-herisau.ch</b> — HTTP-only, not mobile-responsive, no online booking, no Google
+    Business profile, single language. The pipeline audited it, wrote a verified German narrative,
+    generated the report and demo site above, and drafted the outreach email — in <b>~15 seconds</b>,
+    then stopped and waited for a human. <b>That stop is the point.</b></p>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <h2>Security & evaluation</h2>
+  <p class="sub">Aligned with Google's <i>Secure Vibe Coding Agent</i> framework — details in the threat model.</p>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Guardrails</h3>
+      <ul>
+        <li>Injection sanitizer on all scraped content (Pillar 3/4)</li>
+        <li>Zero Ambient Authority: email sending structurally impossible (Pillar 5)</li>
+        <li>Strict tool boundaries — no Confused Deputy paths</li>
+        <li>Append-only trajectory log per lead (Pillar 6/7)</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Evals — 12/12 passing</h3>
+      <ul>
+        <li>5× injection resistance (attacks flagged, benign German passes)</li>
+        <li>3× claim verification (hallucinated findings caught)</li>
+        <li>2× retrieval relevance (right law for right failure)</li>
+        <li>2× trajectory order (verify-before-publish, per lead)</li>
+        <li>Reporter self-repair loop: rewrite on eval failure, max 2 retries</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<div class="wrap"><footer>
+  <span>Built by Eva Losada Barreiro · Agent Engineering Bootcamp 2026</span>
+  <span>«The most agentic decision in this system was deciding what the agents must never do.»</span>
+</footer></div>
+
+</body>
+</html>

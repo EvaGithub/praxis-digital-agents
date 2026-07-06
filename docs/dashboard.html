@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Praxis-Audit Dashboard — Multi-Agent System</title>
+<style>
+body { font-family:'Segoe UI',system-ui,sans-serif; background:#0F1720; color:#E7EDF3; margin:0; padding:32px 20px; }
+.wrap { max-width:1150px; margin:0 auto; }
+h1 { font-size:1.7em; margin-bottom:4px; }
+.sub { color:#8CA0B3; margin-bottom:28px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:20px; }
+.card { background:#18232F; border-radius:14px; padding:22px; border:1px solid #24313F; }
+.head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+h3 { margin:0 0 4px; font-size:1.1em; }
+.muted { color:#8CA0B3; font-size:.88em; margin:2px 0; }
+.small { font-size:.78em; }
+.grade { min-width:54px; height:54px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.7em; font-weight:800; color:#fff; }
+.score { margin:14px 0 8px; font-size:.95em; }
+.pills { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.pill { font-size:.72em; padding:4px 10px; border-radius:12px; }
+.pill-ok { background:#123B2A; color:#5BD99F; }
+.pill-bad { background:#42191D; color:#F08A8A; }
+.pill-neutral { background:#1F2C3A; color:#9FB5C9; }
+details summary { cursor:pointer; color:#6FB4E8; font-size:.88em; margin-bottom:8px; }
+.checks { margin-top:8px; }
+.chk { display:flex; justify-content:space-between; padding:5px 2px; font-size:.85em; border-bottom:1px solid #22303E; }
+.ok { color:#5BD99F; font-weight:700; } .fail { color:#F08A8A; font-weight:700; }
+.links { display:flex; gap:14px; margin-top:14px; flex-wrap:wrap; }
+.links a { color:#6FB4E8; text-decoration:none; font-size:.88em; background:#1F2C3A; padding:8px 14px; border-radius:8px; }
+.links a:hover { background:#27394B; }
+.err { color:#F08A8A; }
+.foot { margin-top:30px; color:#5C6E80; font-size:.8em; }
+</style>
+</head>
+<body><div class="wrap">
+<h1>🩺 Praxis-Audit Dashboard</h1>
+<p class="sub">Multi-Agent System: Scout → Auditor (+ Injection-Guardrail) → Reporter (+ Claim-Verification-Eval) → Human Approval</p>
+<div class="grid">
+    <div class="card">
+      <div class="head">
+        <div>
+          <h3>Hautarzt Herisau</h3>
+          <p class="muted">Dermatologie & Ästhetische Medizin — Herisau</p>
+          <p class="muted small">http://www.hautarzt-herisau.ch/</p>
+        </div>
+        <div class="grade" style="background:#C0392B">F</div>
+      </div>
+      <div class="score">Score: <b>8 / 90</b> (8.9%)</div>
+      <div class="pills"><span class="pill pill-ok">Eval: Claims verifiziert ✓</span><span class="pill pill-neutral">Injection-Scan: none</span></div>
+      <details><summary>12 Kriterien anzeigen</summary><div class="checks"><div class="chk"><span>HTTPS-Verschlüsselung</span><span class="fail">✗</span></div><div class="chk"><span>Mobile-Responsive Design</span><span class="fail">✗</span></div><div class="chk"><span>Schnelle Ladezeit</span><span class="ok">✓</span></div><div class="chk"><span>Google Business Profil</span><span class="fail">✗</span></div><div class="chk"><span>Online-Terminbuchung</span><span class="fail">✗</span></div><div class="chk"><span>Aktualität der Inhalte</span><span class="fail">✗</span></div><div class="chk"><span>Social Media Präsenz</span><span class="fail">✗</span></div><div class="chk"><span>SEO Meta-Beschreibung</span><span class="fail">✗</span></div><div class="chk"><span>Bildoptimierung</span><span class="fail">✗</span></div><div class="chk"><span>Kontaktformular</span><span class="fail">✗</span></div><div class="chk"><span>Mehrsprachigkeit</span><span class="fail">✗</span></div><div class="chk"><span>Patientenbewertungen</span><span class="fail">✗</span></div></div></details>
+      <div class="links">
+        <a href="report_hautarzt-herisau.html" target="_blank">📊 Visueller Report</a>
+        <a href="demo_hautarzt-herisau.html" target="_blank">🌐 Demo-Website</a>
+        <a href="audit_hautarzt-herisau.pdf" target="_blank">📄 PDF</a>
+        <a href="../outbox/draft_hautarzt-herisau.md" target="_blank">✉️ Entwurf</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Hautarztpraxis St. Gallen (Beispiel)</h3>
+      <p class="muted">St. Gallen — https://www.derma-sg.ch</p>
+      <p class="err">Website nicht erreichbar</p>
+    </div>
+    <div class="card">
+      <div class="head">
+        <div>
+          <h3>Dermatologie Wil (Beispiel)</h3>
+          <p class="muted">Dermatologie — Wil SG</p>
+          <p class="muted small">https://www.hautarzt-wil.ch/</p>
+        </div>
+        <div class="grade" style="background:#C0392B">F</div>
+      </div>
+      <div class="score">Score: <b>18 / 90</b> (20.0%)</div>
+      <div class="pills"><span class="pill pill-ok">Eval: Claims verifiziert ✓</span><span class="pill pill-neutral">Injection-Scan: none</span></div>
+      <details><summary>12 Kriterien anzeigen</summary><div class="checks"><div class="chk"><span>HTTPS-Verschlüsselung</span><span class="ok">✓</span></div><div class="chk"><span>Mobile-Responsive Design</span><span class="fail">✗</span></div><div class="chk"><span>Schnelle Ladezeit</span><span class="ok">✓</span></div><div class="chk"><span>Google Business Profil</span><span class="fail">✗</span></div><div class="chk"><span>Online-Terminbuchung</span><span class="fail">✗</span></div><div class="chk"><span>Aktualität der Inhalte</span><span class="fail">✗</span></div><div class="chk"><span>Social Media Präsenz</span><span class="fail">✗</span></div><div class="chk"><span>SEO Meta-Beschreibung</span><span class="fail">✗</span></div><div class="chk"><span>Bildoptimierung</span><span class="fail">✗</span></div><div class="chk"><span>Kontaktformular</span><span class="fail">✗</span></div><div class="chk"><span>Mehrsprachigkeit</span><span class="fail">✗</span></div><div class="chk"><span>Patientenbewertungen</span><span class="fail">✗</span></div></div></details>
+      <div class="links">
+        <a href="report_dermatologie-wil-beispiel.html" target="_blank">📊 Visueller Report</a>
+        <a href="demo_dermatologie-wil-beispiel.html" target="_blank">🌐 Demo-Website</a>
+        <a href="audit_dermatologie-wil-(beispiel).pdf" target="_blank">📄 PDF</a>
+        <a href="../outbox/draft_dermatologie-wil-(beispiel).md" target="_blank">✉️ Entwurf</a>
+      </div>
+    </div>
+</div>
+<p class="foot">E-Mail-Entwürfe werden NIE automatisch versendet (UWG Art. 3 lit. o — Einwilligung erforderlich). Human-in-the-loop by design.</p>
+</div></body></html>

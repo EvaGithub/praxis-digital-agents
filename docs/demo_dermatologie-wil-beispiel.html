@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Dermatologie in Wil SG — Praxisteam. Online-Terminbuchung rund um die Uhr, moderne Diagnostik, mehrsprachiges Team.">
+<title>Dermatologie Wil (Beispiel) — Dermatologie in Wil SG</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --porcelain:#F6F3EE; --pine:#1E4D3F; --pine-deep:#12332A; --sage:#DCE5DD;
+  --ink:#20241F; --mut:#6B7268; --hair:#E4DFD6;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:var(--porcelain); color:var(--ink); line-height:1.65; }
+.wrap { max-width:1080px; margin:0 auto; padding:0 28px; }
+
+nav { position:sticky; top:0; background:rgba(246,243,238,0.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hair); z-index:50; }
+nav .wrap { display:flex; justify-content:space-between; align-items:center; height:68px; }
+.logo { font-family:'Fraunces'; font-size:1.15rem; font-weight:600; color:var(--pine-deep); text-decoration:none; }
+nav ul { display:flex; gap:30px; list-style:none; align-items:center; }
+nav ul a { text-decoration:none; color:var(--ink); font-size:0.9rem; font-weight:500; }
+nav ul a:hover { color:var(--pine); }
+.btn { display:inline-block; background:var(--pine); color:#fff !important; padding:11px 24px;
+  border-radius:100px; font-weight:600; font-size:0.9rem; text-decoration:none; transition:background .2s; }
+.btn:hover { background:var(--pine-deep); }
+.btn.ghost { background:transparent; color:var(--pine) !important; border:1.5px solid var(--pine); }
+.btn.ghost:hover { background:var(--sage); }
+
+.hero { padding:96px 0 80px; position:relative; }
+.eyebrow { font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--pine); margin-bottom:20px; }
+h1 { font-family:'Fraunces'; font-weight:500; font-size:clamp(2.4rem,5.5vw,4rem);
+  line-height:1.08; letter-spacing:-0.02em; max-width:14ch; }
+h1 em { font-style:italic; color:var(--pine); }
+.hero p.lede { max-width:52ch; margin:26px 0 34px; font-size:1.05rem; color:var(--mut); }
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+.appt-card { position:absolute; right:28px; top:110px; background:#fff; border:1px solid var(--hair);
+  border-radius:18px; padding:22px 26px; width:250px; box-shadow:0 18px 40px -24px rgba(30,77,63,0.35); }
+.appt-card .k { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--mut); }
+.appt-card .v { font-family:'Fraunces'; font-size:1.25rem; color:var(--pine-deep); margin:2px 0 14px; }
+.appt-card .row { border-top:1px solid var(--hair); padding-top:12px; margin-top:2px; }
+.langs { display:flex; gap:22px; margin-top:56px; padding-top:24px; border-top:1px solid var(--hair);
+  font-size:0.85rem; color:var(--mut); flex-wrap:wrap; }
+.langs b { color:var(--ink); font-weight:600; }
+
+section { padding:76px 0; }
+.sec-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:44px; flex-wrap:wrap; gap:8px; }
+h2 { font-family:'Fraunces'; font-weight:500; font-size:2rem; letter-spacing:-0.015em; }
+.sec-head span { color:var(--mut); font-size:0.88rem; }
+
+.svc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1px;
+  background:var(--hair); border:1px solid var(--hair); border-radius:18px; overflow:hidden; }
+.svc { background:var(--porcelain); padding:30px 26px; transition:background .25s; }
+.svc:hover { background:#fff; }
+.svc-num { font-family:'Fraunces'; font-style:italic; color:var(--pine); font-size:0.95rem; }
+.svc h3 { font-family:'Fraunces'; font-weight:600; font-size:1.15rem; margin:10px 0 8px; }
+.svc p { font-size:0.88rem; color:var(--mut); }
+
+.about { background:var(--pine-deep); color:#EDE9E0; border-radius:24px; }
+.about .inner { display:grid; grid-template-columns:1.3fr 1fr; gap:60px; padding:64px; align-items:center; }
+.about h2 { color:#fff; margin-bottom:18px; }
+.about p { color:#B9C6BD; font-size:0.95rem; margin-bottom:14px; }
+.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+.about-stats .n { font-family:'Fraunces'; font-size:2.4rem; color:#8FD9BE; line-height:1; }
+.about-stats .l { font-size:0.8rem; color:#B9C6BD; margin-top:6px; }
+
+.quotes { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+blockquote { background:#fff; border:1px solid var(--hair); border-radius:16px; padding:26px;
+  font-family:'Fraunces'; font-size:1.02rem; font-style:italic; line-height:1.55; }
+blockquote footer { font-family:'Inter'; font-style:normal; font-size:0.8rem; color:var(--mut); margin-top:14px; }
+
+.hours-contact { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.hrow { display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--hair); font-size:0.92rem; }
+.hrow b { font-weight:600; }
+.contact-card { background:#fff; border:1px solid var(--hair); border-radius:18px; padding:32px; }
+.contact-card h3 { font-family:'Fraunces'; font-size:1.3rem; margin-bottom:16px; }
+.contact-card p { font-size:0.92rem; margin-bottom:10px; color:var(--mut); }
+.contact-card a { color:var(--pine); font-weight:600; text-decoration:none; }
+.contact-card .btn { margin-top:14px; }
+
+footer.site { border-top:1px solid var(--hair); padding:30px 0 40px; margin-top:20px;
+  font-size:0.8rem; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+
+@media (max-width:880px) {
+  .appt-card { position:static; margin-top:36px; width:100%; }
+  .about .inner { grid-template-columns:1fr; padding:40px 28px; }
+  .hours-contact { grid-template-columns:1fr; }
+  nav ul li:not(:last-child) { display:none; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#">Dermatologie Wil (Beispiel)</a>
+  <ul>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#praxis">Praxis</a></li>
+    <li><a href="#sprechstunden">Sprechstunden</a></li>
+    <li><a class="btn" href="#kontakt">Termin buchen</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Dermatologie · Wil SG</div>
+  <h1>Gesunde Haut beginnt mit <em>Zuhören.</em></h1>
+  <p class="lede">Praxisteam und Team verbinden moderne Dermatologie mit Zeit für Ihre Fragen — in vier Sprachen, mit Terminen, die Sie rund um die Uhr online buchen.</p>
+  <div class="hero-actions">
+    <a class="btn" href="#kontakt">Online Termin vereinbaren</a>
+    <a class="btn ghost" href="#leistungen">Leistungen ansehen</a>
+  </div>
+  <aside class="appt-card">
+    <div class="k">Nächster freier Termin</div>
+    <div class="v">Do, 09. Juli · 10:20</div>
+    <div class="row k">Buchung</div>
+    <div style="font-size:0.88rem">24/7 online via OneDoc<br>Swiss-hosted · nDSG-konform</div>
+  </aside>
+  <div class="langs">
+    <span><b>Sprachen</b> — Deutsch · English · Español · Русский</span>
+  </div>
+</div></header>
+
+<section id="leistungen"><div class="wrap">
+  <div class="sec-head"><h2>Leistungen</h2><span>Kassen- und Privatleistungen</span></div>
+  <div class="svc-grid">
+      <article class="svc">
+        <span class="svc-num">01</span>
+        <h3>Dermatologische Diagnostik</h3>
+        <p>Gründliche Untersuchung mit digitaler Dermatoskopie und strukturierter Verlaufskontrolle.</p>
+      </article>
+      <article class="svc">
+        <span class="svc-num">02</span>
+        <h3>Hautkrebs-Vorsorge</h3>
+        <p>Systematisches Ganzkörper-Screening — früh erkannt ist Hautkrebs fast immer heilbar.</p>
+      </article>
+      <article class="svc">
+        <span class="svc-num">03</span>
+        <h3>Ästhetische Medizin</h3>
+        <p>Evidenzbasierte Verfahren für ein frisches, natürliches Hautbild. Beratung ohne Verkaufsdruck.</p>
+      </article>
+      <article class="svc">
+        <span class="svc-num">04</span>
+        <h3>Laser-Therapie</h3>
+        <p>Präzise Behandlung von Gefässveränderungen, Pigmentflecken und Narben.</p>
+      </article>
+  </div>
+</div></section>
+
+<section id="praxis"><div class="wrap">
+  <div class="about"><div class="inner">
+    <div>
+      <h2>Eine Praxis, die sich Zeit nimmt.</h2>
+      <p>Seit über 15 Jahren betreuen wir Patientinnen und Patienten in Wil SG und der Region — von der Routinekontrolle bis zur komplexen Diagnose.</p>
+      <p>Wir glauben, dass gute Medizin mit Verständlichkeit beginnt: Sie verlassen jede Konsultation mit einem klaren Bild und einem klaren Plan.</p>
+    </div>
+    <div class="about-stats">
+      <div><div class="n">15+</div><div class="l">Jahre Erfahrung</div></div>
+      <div><div class="n">2'500</div><div class="l">Patienten betreut</div></div>
+      <div><div class="n">4</div><div class="l">Sprachen im Team</div></div>
+      <div><div class="n">98%</div><div class="l">Weiterempfehlung</div></div>
+    </div>
+  </div></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><h2>Was Patienten sagen</h2><span>Verifizierte Bewertungen</span></div>
+  <div class="quotes">
+    <blockquote>«Endlich eine Ärztin, die erklärt statt abzufertigen. Der Online-Termin war in einer Minute gebucht.»<footer>— Maria K., Herisau</footer></blockquote>
+    <blockquote>«Professionell, pünktlich, und man fühlt sich ernst genommen. Klare Empfehlung.»<footer>— Thomas M., St. Gallen</footer></blockquote>
+    <blockquote>«Que la doctora hable español hizo todo mucho más fácil para mí.»<footer>— Carmen R., Appenzell</footer></blockquote>
+  </div>
+</div></section>
+
+<section id="sprechstunden"><div class="wrap">
+  <div class="hours-contact">
+    <div>
+      <h2 style="margin-bottom:26px">Sprechstunden</h2>
+      <div class="hrow"><b>Montag – Donnerstag</b><span>08:00 – 12:00 · 13:30 – 17:30</span></div>
+      <div class="hrow"><b>Freitag</b><span>08:00 – 14:00</span></div>
+      <div class="hrow"><b>Samstag / Sonntag</b><span>Geschlossen</span></div>
+      <p style="margin-top:18px;font-size:0.85rem;color:var(--mut)">Notfälle ausserhalb der Sprechzeiten: Toxzentrum 145 · Sanitätsnotruf 144</p>
+    </div>
+    <div class="contact-card" id="kontakt">
+      <h3>Termin & Kontakt</h3>
+      <p>📍 Wil SG, Schweiz</p>
+      <p>📞 <a href="tel:+41 71 000 00 00">+41 71 000 00 00</a></p>
+      <p>✉️ <a href="mailto:praxis@example.ch">praxis@example.ch</a></p>
+      <a class="btn" href="#">Online Termin buchen (OneDoc)</a>
+      <p style="margin-top:12px;font-size:0.78rem">Buchung rund um die Uhr · Daten in der Schweiz gehostet</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="wrap"><footer class="site">
+  <span>© 2026 Dermatologie Wil (Beispiel) · Dermatologie</span>
+  <span>Datenschutz (nDSG) · Impressum · Demo zur Veranschaulichung</span>
+</footer></div>
+
+</body>
+</html>

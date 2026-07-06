@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ndsg-datenschutz",
+    "topic": "Datenschutzerklärung (nDSG)",
+    "tags": ["https", "contact_form", "meta_description", "general"],
+    "text_de": "Seit 1. September 2023 verlangt das revidierte Datenschutzgesetz (nDSG) eine vollständige Datenschutzerklärung, die alle Datenbearbeiter namentlich nennt. Für Arztpraxen gilt erhöhte Sorgfalt: Patientendaten sind 'besonders schützenswerte Personendaten' (Art. 5 lit. c nDSG).",
+    "source": "nDSG Art. 19–21"
+  },
+  {
+    "id": "ndsg-haftung",
+    "topic": "Persönliche Haftung der Praxisleitung",
+    "tags": ["https", "contact_form", "general"],
+    "text_de": "Bei Verstössen gegen das nDSG haften nicht Unternehmen, sondern verantwortliche natürliche Personen — Praxisinhaber persönlich — mit Bussen bis CHF 250'000 (Art. 60 ff. nDSG).",
+    "source": "nDSG Art. 60–63"
+  },
+  {
+    "id": "https-pflicht",
+    "topic": "Verschlüsselte Übertragung",
+    "tags": ["https", "contact_form"],
+    "text_de": "Das nDSG verlangt dem Risiko angemessene Datensicherheit (Art. 8). Ein unverschlüsseltes Kontaktformular, über das Patienten Gesundheitsangaben senden, verletzt diese Pflicht; HTTPS ist der anerkannte Mindeststandard.",
+    "source": "nDSG Art. 8; DSV Art. 1–6"
+  },
+  {
+    "id": "booking-onedoc",
+    "topic": "Konforme Online-Terminbuchung",
+    "tags": ["online_booking"],
+    "text_de": "Termingründe sind Gesundheitsdaten. Buchungstools müssen Daten in der Schweiz oder EU speichern und Auftragsverarbeitung regeln. OneDoc (Schweizer Marktführer, ISO 27001, Hosting in der Schweiz, ~13'000 Gesundheitsfachpersonen) erfüllt dies; US-Tools wie Calendly ohne Zusatzvereinbarungen nicht.",
+    "source": "nDSG Art. 9, 16; OneDoc Compliance-Dokumentation"
+  },
+  {
+    "id": "cookie-tracking",
+    "topic": "Cookies & Analytics",
+    "tags": ["meta_description", "social_links", "general"],
+    "text_de": "Tracking auf Praxis-Websites erfordert transparente Information und bei EU-Patienten Einwilligung (DSGVO gilt parallel). Standard Google Analytics ist problematisch; Schweizer/EU-gehostete Alternativen (z.B. Plausible) sind der sichere Weg.",
+    "source": "nDSG Art. 19; DSGVO Art. 6, 44 ff."
+  },
+  {
+    "id": "uwg-email",
+    "topic": "Werbe-E-Mails an Praxen",
+    "tags": ["outreach", "general"],
+    "text_de": "Unaufgeforderte kommerzielle Massen-E-Mails ohne Einwilligung sind unlauter (UWG Art. 3 Abs. 1 lit. o). Jede Kontaktaufnahme muss individuell geprüft und von einem Menschen freigegeben werden.",
+    "source": "UWG Art. 3 Abs. 1 lit. o"
+  },
+  {
+    "id": "impressum",
+    "topic": "Impressumspflicht",
+    "tags": ["update_recency", "general"],
+    "text_de": "Wer in der Schweiz Waren oder Dienstleistungen elektronisch anbietet, muss klare Angaben zur Identität und Kontaktadresse machen (UWG Art. 3 Abs. 1 lit. s). Für Praxen gehören Name, Adresse und Kontaktmöglichkeit auf die Website.",
+    "source": "UWG Art. 3 Abs. 1 lit. s"
+  },
+  {
+    "id": "mobile-zugang",
+    "topic": "Barrierefreier Patientenzugang",
+    "tags": ["mobile_responsive", "multilingual"],
+    "text_de": "Keine direkte Rechtspflicht, aber ein Versorgungsargument: Die Mehrheit der Patientenanfragen erfolgt mobil, und mehrsprachige Information verbessert den Zugang für internationale Patienten — ein Qualitätsmerkmal, das Kantone bei Praxisbewilligungen zunehmend positiv werten.",
+    "source": "BAG-Empfehlungen digitale Gesundheitskommunikation"
+  }
+]
