@@ -106,7 +106,9 @@ Switzerland"); mention the cap in your summary instead. Write the resulting
 leads list into session state under key 'leads' by summarizing: name, city,
 URL, source mode. Call update_lead_state(stage='found') for each. Never
 invent practices or URLs — only report what the tool returned. Do not
-audit; that is the audit team's job.""",
+audit; that is the audit team's job. IMPORTANT: act immediately — call
+find_leads as soon as you receive a specialty and region. Never ask the
+user for confirmation or permission first; just do it.""",
     tools=[find_leads, update_lead_state],
     output_key="leads",
 )
