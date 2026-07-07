@@ -4,7 +4,7 @@
 
 ---
 
-## 📕 1. Problem Statement
+## 1. Problem Statement
 
 **The Reality:**
 Switzerland has thousands of independent medical practices run by excellent
@@ -34,7 +34,7 @@ away). A human approves every outreach — by design and by law.
 
 ---
 
-## 🚲 2. What the System Does
+## 2. What the System Does
 
 ![Architecture diagram: Orchestrator delegates to a Scout, Audit team, and Reporter in fixed order, with a Guardrail, Legal RAG, Eval gate, and Human approval gate](docs/images/architecture.svg)
 
@@ -146,7 +146,7 @@ adds value (interpretation, narrative); shared state file as the audit trail.
 
 ---
 
-## 🔒 3. Security & Evaluation (aligned with Google's Secure Vibe Coding framework)
+## 3. Security & Evaluation (aligned with Google's Secure Vibe Coding framework)
 
 This system ingests **arbitrary scraped websites** — the textbook untrusted
 input scenario. The design maps directly onto the whitepaper's pillars:
@@ -169,7 +169,7 @@ all workers; parallel audits cut wall-clock ~3×).
 
 ---
 
-## ✅ 4. Current State — What's Built
+## 4. Current State — What's Built
 
 **Artifacts per practice (all generated, all tested against real sites):**
 
@@ -190,7 +190,7 @@ full artifact set generated in ~15s deterministic mode.
 
 ---
 
-## 🚀 5. Running It
+## 5. Running It
 
 ```bash
 pip install -r requirements.txt
@@ -207,7 +207,7 @@ Kaggle ambient-expense-agent deployment).
 
 ---
 
-## ⚙️ Settings — pursue threshold & lead cap
+## Settings — pursue threshold & lead cap
 
 Two values control how aggressively the system operates, both in
 `config.py` and both overridable without touching code (env vars or `.env`):
@@ -235,30 +235,4 @@ or set them inline for a single run:
 PURSUE_THRESHOLD=6 MAX_LEADS=10 python run_demo.py
 ```
 
----
-
-## 🎤 6. Demo Script (5 min)
-
-1. **Problem** (40s) — open the real hautarzt-herisau.ch. Four languages on
-   staff, HTTP-only site. "This practice is losing patients it deserves."
-2. **Architecture** (60s) — the layer diagram: ReAct orchestrator,
-   deterministic pipeline, parallel workers, guardrail, eval gate, human
-   approval. One sentence each.
-3. **Live run** (90s) — `adk web`: "Audit dermatologists in Ostschweiz."
-   Watch delegation and parallel fan-out. (Insurance: `python run_demo.py`.)
-4. **Evidence package** (90s) — dashboard → visual report (gauge, categories,
-   issue cards) → demo website → email draft with approval header.
-5. **The differentiators** (40s) — run evals live: injection attacks caught,
-   hallucinated claims caught, 8/8. Close on the legal reasoning for the
-   human gate: "The most agentic decision in this system was deciding what
-   the agents must never do."
-
-**Decision point after demo day:** if reviewer feedback validates the
-evidence-package approach → wire the Scout to Google Places API and scale
-to 100 practices/week; if not → keep the auditor+report core and pivot the
-outreach layer.
-
----
-
-*Built by Eva Losada Barreiro — product manager by day, agent engineer by
-night. "Evidence beats pitching."*
+*Built by Eva Losada Barreiro "Evidence beats pitching."*
