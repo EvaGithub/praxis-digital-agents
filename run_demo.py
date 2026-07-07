@@ -179,12 +179,14 @@ def build_dashboard(results: list) -> str:
         links = ""
         if r.get("artifacts"):
             a = r["artifacts"]
+            links = ""
+        if r.get("artifacts"):
+            a = r["artifacts"]
             links = f"""<div class="links">
         <a href="{a.get('report','')}" target="_blank">📊 Visueller Report</a>
         <a href="{a.get('demo','')}" target="_blank">🌐 Demo-Website</a>
-        <a href="{a.get('pdf','')}" target="_blank">📄 PDF</a>
-        <a href="../outbox/{a.get('draft','')}" target="_blank">✉️ Entwurf</a>
-      </div>"""
+      </div>
+      <p class="private-note">📄 PDF und ✉️ Entwurf bleiben lokal und privat — nicht öffentlich verlinkt.</p>"""
         ev = r.get("eval") or {}
         eval_badge = ""
         if ev:
@@ -238,6 +240,7 @@ details summary {{ cursor:pointer; color:#6FB4E8; font-size:.88em; margin-bottom
 .links {{ display:flex; gap:14px; margin-top:14px; flex-wrap:wrap; }}
 .links a {{ color:#6FB4E8; text-decoration:none; font-size:.88em; background:#1F2C3A; padding:8px 14px; border-radius:8px; }}
 .links a:hover {{ background:#27394B; }}
+.private-note {{ font-size:.72em; color:#5C6E80; margin-top:8px; font-style:italic; }}
 .err {{ color:#F08A8A; }}
 .foot {{ margin-top:30px; color:#5C6E80; font-size:.8em; }}
 </style>
