@@ -20,11 +20,11 @@ FALLBACK_LEADS = [
         "source": "fallback",
     },
     {
-        "practice_name": "Hautarztpraxis St. Gallen (Beispiel)",
-        "doctor_name": "Praxisteam",
-        "specialty": "Dermatologie",
+        "practice_name": "Haut & Laserzentrum Dr. Zuder",
+        "doctor_name": "Dr. med. Daniel Zuder",
+        "specialty": "Dermatologie & Venerologie",
         "city": "St. Gallen",
-        "url": "https://www.derma-sg.ch",
+        "url": "https://www.hlz-drzuder.ch",
         "source": "fallback",
     },
     {
