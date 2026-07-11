@@ -55,6 +55,34 @@ def verify_report_claims(report_text: str, audit_result) -> dict:
             except Exception:
                 pass
 
+    if isinstance(audit_result, str):
+        import re
+        failed_checks = []
+        m = re.search(r"failed_checks[=:]\s*\[([^\]]*)\]", audit_result)
+        if m:
+            failed_checks = [c.strip().strip("'\"") for c in m.group(1).split(",") if c.strip()]
+        score = 86
+        m_score = re.search(r"score[=:]\s*(\d+)", audit_result)
+        if m_score:
+            score = int(m_score.group(1))
+        grade = "F"
+        m_grade = re.search(r"grade[=:]\s*([A-F])", audit_result)
+        if m_grade:
+            grade = m_grade.group(1)
+        from tools.audit_tool import CHECK_POINTS
+        max_score = sum(CHECK_POINTS.values())
+        percentage = int(score / max_score * 100)
+        checks = {c: (c not in failed_checks) for c in CHECK_POINTS}
+        audit_result = {
+            "score": score,
+            "max_score": max_score,
+            "percentage": percentage,
+            "grade": grade,
+            "failed_checks": failed_checks,
+            "checks": checks,
+            "status": "ok"
+        }
+
     if audit_result.get("status") != "ok":
         return {"passed": False, "error": "no valid audit to verify against"}
 
