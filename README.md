@@ -11,7 +11,7 @@ Switzerland has thousands of independent medical practices run by excellent
 doctors with terrible websites. A real example from Ostschweiz: a dermatology
 practice whose doctors speak four languages, serving an international patient
 base — with an HTTP-only, non-mobile website and no online booking. Our audit
-scored it **8/90 (Grade F)**.
+scored it **20/90 (Grade F)**.
 
 These practices lose patients every day because:
 
