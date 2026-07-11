@@ -28,12 +28,12 @@ python evals/run_evals.py     # should print: EVAL SUMMARY: 12/12 passed
 7. A terminal, ready to run `adk web` and `python evals/run_evals.py`
 
 **The numbers you will say (verify against your fresh dashboard):**
-- Hautarzt Herisau → **20/98, Grade F, 10 failed checks** → full evidence package
-- Haut & Laserzentrum Dr. Zuder → **75/98, Grade B, 3 failed checks** → correctly SKIPPED (healthy)
-- Dermatologie Wil → **32/98, Grade F, 9 failed checks** → full evidence package
-- Evals: **12/12 passing** · 13 checks worth 98 points · 3 parallel workers
+- Hautarzt Herisau → **20/90, Grade F, 9 failed checks** → full evidence package
+- Haut & Laserzentrum Dr. Zuder → **67/90, Grade C, 3 failed checks** → correctly SKIPPED (healthy)
+- Dermatologie Wil → **24/90, Grade F, 9 failed checks** → full evidence package
+- Evals: **12/12 passing** · 12 checks worth 86 points · 3 parallel workers
 
-> ⚠️ Note: the README body has been updated to cite **20/98** for Hautarzt Herisau. Use these numbers during your presentation.
+> ⚠️ Note: the README body has been updated to cite **20/90** for Hautarzt Herisau. Use these numbers during your presentation.
 
 ---
 

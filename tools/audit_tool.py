@@ -21,13 +21,12 @@ CHECK_POINTS = {
     "update_recency": 8,
     "social_links": 6,
     "meta_description": 5,
-    "image_optimization": 6,
     "contact_form": 7,
     "multilingual": 6,
     "testimonials": 4,
-    "broken_links": 8,
+    "broken_links": 6,
 }
-MAX_POINTS = sum(CHECK_POINTS.values())  # 94
+MAX_POINTS = sum(CHECK_POINTS.values())  # 86
 
 IMPACT_DE = {
     "https": "Sicherheit für Patientendaten und Google-Ranking",
@@ -38,7 +37,6 @@ IMPACT_DE = {
     "update_recency": "Aktualität signalisiert eine active Praxis",
     "social_links": "Patientennähe und Community-Aufbau",
     "meta_description": "Sichtbarkeit in Suchmaschinen-Ergebnissen",
-    "image_optimization": "Schnellere Seiten, besseres Ranking",
     "contact_form": "Niedrigschwellige Patientenkommunikation",
     "multilingual": "Zugang für internationale Patienten",
     "testimonials": "Sozialer Beweis und Vertrauensaufbau",
@@ -87,7 +85,6 @@ def run_website_audit(url: str) -> dict:
         "update_recency": any(k in low for k in ["2025", "2026", "aktualisiert"]),
         "social_links": any(k in low for k in ["facebook.com", "instagram.com", "linkedin.com", "youtube.com"]),
         "meta_description": soup.find("meta", attrs={"name": "description"}) is not None,
-        "image_optimization": (".webp" in low) or (low.count("<img") <= 15 and "<img" in low),
         "contact_form": bool(soup.find("form") and soup.find("form").find_all(["input", "textarea"])),
         "multilingual": any(k in low for k in ["/en/", "/fr/", "/it/", "hreflang", "sprache", "language"]),
         "testimonials": any(k in low for k in ["testimonial", "bewertung", "erfahrung", "empfehlung", "review"]),

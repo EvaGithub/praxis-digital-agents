@@ -8,9 +8,9 @@ files isn't convenient).
 
   PURSUE_THRESHOLD  — a practice only gets a full report + demo website
                       + draft email if it fails AT LEAST this many of
-                      the 13 checks. Lower = more leads pursued (more
+                      the 12 checks. Lower = more leads pursued (more
                       generous), higher = only the worst sites (more
-                      conservative). Range: 1-13.
+                      conservative). Range: 1-12.
 
   MAX_LEADS         — upper limit on how many practices the Scout will
                       return per run. Protects against accidentally

@@ -20,7 +20,6 @@ CHECK_SYNONYMS = {
     "update_recency": ["aktualisiert", "aktualität", "updated", "veraltet"],
     "social_links": ["social media", "instagram", "facebook"],
     "meta_description": ["meta-beschreibung", "meta description", "seo-beschreibung"],
-    "image_optimization": ["bildoptimierung", "bilder", "image"],
     "contact_form": ["kontaktformular", "contact form"],
     "multilingual": ["mehrsprachig", "sprachen", "multilingual", "languages"],
     "testimonials": ["bewertungen", "testimonial", "erfahrungsberichte", "reviews"],

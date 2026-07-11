@@ -41,7 +41,7 @@ MOCK_AUDIT = {
     "checks": {
         "https": False, "mobile_responsive": False, "page_load": True,
         "google_business": False, "online_booking": False, "update_recency": False,
-        "social_links": False, "meta_description": False, "image_optimization": True,
+        "social_links": False, "meta_description": False,
         "contact_form": False, "multilingual": False, "testimonials": False,
         "broken_links": False,
     },

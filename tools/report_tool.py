@@ -30,7 +30,6 @@ CHECK_LABELS_DE = {
     "update_recency": "Aktualität der Inhalte",
     "social_links": "Social Media Präsenz",
     "meta_description": "SEO Meta-Beschreibung",
-    "image_optimization": "Bildoptimierung",
     "contact_form": "Kontaktformular",
     "multilingual": "Mehrsprachigkeit",
     "testimonials": "Patientenbewertungen",
@@ -125,7 +124,7 @@ def generate_pdf_report(audit_result, practice_name: str, doctor_name: str,
 
     story.append(PageBreak())
 
-    story.append(Paragraph("<b>Detaillierte Ergebnisse — 13 Kriterien</b>",
+    story.append(Paragraph("<b>Detaillierte Ergebnisse — 12 Kriterien</b>",
         ParagraphStyle("dt", parent=styles["Normal"], fontSize=14, fontName="Helvetica-Bold",
                        textColor=DARK, spaceAfter=8*mm)))
 
@@ -183,7 +182,6 @@ IMPACT_SHORT = {
     "update_recency": "Vertrauenssignal",
     "social_links": "Patientennähe",
     "meta_description": "SEO-Sichtbarkeit",
-    "image_optimization": "Seitengeschwindigkeit",
     "contact_form": "Kommunikation",
     "multilingual": "Internationale Patienten",
     "testimonials": "Sozialer Beweis",
