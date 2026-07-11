@@ -185,7 +185,7 @@ all workers; parallel audits cut wall-clock ~3×).
 5. **Operator dashboard** (`dashboard.html`) — all leads, scores, eval/guardrail
    badges, links to every artifact.
 
-**Verified run:** hautarzt-herisau.ch → 20/90, Grade F, 3 critical issues,
+**Verified run:** hautarzt-herisau.ch → 20/98, Grade F, 4 critical issues,
 full artifact set generated in ~15s deterministic mode.
 
 ---
