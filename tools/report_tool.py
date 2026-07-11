@@ -10,6 +10,7 @@ autonomous sending is deliberately not implemented.
 import os
 import json
 from datetime import datetime
+from typing import Union
 
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
@@ -40,7 +41,7 @@ GRADE_LABELS = {"A": "Ausgezeichnet", "B": "Gut", "C": "Befriedigend", "D": "Ver
 GRADE_COLORS = {"A": "#27AE60", "B": "#F39C12", "C": "#E67E22", "D": "#E74C3C", "F": "#C0392B"}
 
 
-def generate_pdf_report(audit_result, practice_name: str, doctor_name: str,
+def generate_pdf_report(audit_result: Union[dict, str], practice_name: str, doctor_name: str,
                         specialty: str, narrative: str = "", demo_url: str = "") -> dict:
     """Generate the 2-page PDF audit report for a practice.
 

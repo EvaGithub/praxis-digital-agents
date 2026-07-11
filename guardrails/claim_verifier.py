@@ -10,6 +10,8 @@ Maps to Bootcamp Module 4: write evaluations that catch regressions,
 monitor reliability and output quality.
 """
 
+from typing import Union
+
 # German + English phrases the reporter uses per check, for detection
 CHECK_SYNONYMS = {
     "https": ["https", "ssl", "verschlüsselung", "encryption"],
@@ -30,7 +32,7 @@ NEGATIVE_MARKERS = ["fehlt", "keine", "kein ", "nicht vorhanden", "✗", "missin
 POSITIVE_MARKERS = ["vorhanden", "✓", "erfüllt", "present", "aktiv", "funktioniert"]
 
 
-def verify_report_claims(report_text: str, audit_result) -> dict:
+def verify_report_claims(report_text: str, audit_result: Union[dict, str]) -> dict:
     """Verify that a generated report's claims match the audit ground truth.
 
     Heuristic sentence-level check: for each audit check mentioned in the

@@ -14,6 +14,7 @@ vector search when the corpus outgrows keyword retrieval.
 import json
 import os
 import re
+from typing import Union
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KB_PATH = os.path.join(BASE, "data", "compliance_kb.json")
@@ -29,7 +30,7 @@ def _load_kb():
     return _KB
 
 
-def retrieve_compliance(failed_checks, query: str = "", top_k: int = 4) -> dict:
+def retrieve_compliance(failed_checks: Union[list, str], query: str = "", top_k: int = 4) -> dict:
     """Retrieve the compliance obligations relevant to a practice's audit result.
 
     Args:

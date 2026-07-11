@@ -8,6 +8,7 @@ This is what gets sent to the doctor (as link or print-to-PDF).
 
 import os
 from datetime import datetime
+from typing import Union
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(BASE, "outputs")
@@ -52,9 +53,9 @@ SEV = {
 GRADE_COLORS = {"A": "#2E7D5B", "B": "#7FA23B", "C": "#B07818", "D": "#C1622B", "F": "#C73E3E"}
 
 
-def generate_visual_report(audit, practice_name: str, doctor_name: str,
+def generate_visual_report(audit: Union[dict, str], practice_name: str, doctor_name: str,
                            specialty: str, narrative: str = "", demo_url: str = "#",
-                           legal_notes=None) -> dict:
+                           legal_notes: Union[list, str] = None) -> dict:
     """Generate the Semrush-style visual HTML audit report."""
     import json
     import ast
