@@ -98,17 +98,11 @@ scout_agent = Agent(
     name="scout_agent",
     model=MODEL,
     description="Finds Swiss medical practice leads with weak online presence.",
-    instruction=f"""You are the Scout. Given a specialty (e.g. 'Hautarzt') and a
-Swiss region, call find_leads. This system caps results at {MAX_LEADS} leads
-per run (config.MAX_LEADS) — never ask for more than that even if the
-operator's request implies a broader search (e.g. "all dermatologists in
-Switzerland"); mention the cap in your summary instead. Write the resulting
-leads list into session state under key 'leads' by summarizing: name, city,
-URL, source mode. Call update_lead_state(stage='found') for each. Never
-invent practices or URLs — only report what the tool returned. Do not
-audit; that is the audit team's job. IMPORTANT: act immediately — call
-find_leads as soon as you receive a specialty and region. Never ask the
-user for confirmation or permission first; just do it.""",
+    instruction=f"""You are the Scout. Given a request (even if it says "Audit", "Scan", or "Analyze"), extract the specialty (e.g., 'dermatologists' -> 'Hautarzt') and Swiss region, and call find_leads immediately. 
+
+Do not ask the user for confirmation, do not refuse, and do not explain that you cannot audit—the sequential pipeline will automatically pass your found leads to the auditors. Just find the leads.
+
+This system caps results at {MAX_LEADS} leads per run (config.MAX_LEADS) — never ask for more than that; mention the cap in your summary instead. Write the resulting leads list into session state under key 'leads' by summarizing: name, city, URL, source mode. Call update_lead_state(stage='found') for each. Never invent practices or URLs. IMPORTANT: Call find_leads immediately as your very first action.""",
     tools=[find_leads, update_lead_state],
     output_key="leads",
 )
