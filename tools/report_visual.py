@@ -214,7 +214,7 @@ footer {{ margin-top:40px; padding-top:20px; border-top:1px solid var(--line);
   <div>
     <div class="grade-pill">Note {grade}</div>
     <h2 style="margin:0 0 4px">Digitale Gesundheit Ihrer Praxis-Website</h2>
-    <p style="color:var(--mut);font-size:0.92rem">{audit['score']} von {audit['max_score']} Punkten über 12 geprüfte Kriterien in 4 Kategorien.</p>
+    <p style="color:var(--mut);font-size:0.92rem">{audit['score']} von {audit['max_score']} Punkten über 13 geprüfte Kriterien in 4 Kategorien.</p>
     <div class="stats">
       <div class="stat crit"><div class="n">{n_crit}</div><div class="l">Kritische Probleme</div></div>
       <div class="stat warn"><div class="n">{n_warn}</div><div class="l">Warnungen</div></div>

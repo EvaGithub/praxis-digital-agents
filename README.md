@@ -214,7 +214,7 @@ Two values control how aggressively the system operates, both in
 
 | Setting | Default | What it does |
 |---|---|---|
-| `PURSUE_THRESHOLD` | `4` | A practice only gets a full evidence package (report, demo site, draft email) if it fails **at least this many** of the 12 checks. Lower it (e.g. `2`) to pursue more leads generously; raise it (e.g. `7`) to only chase the worst-scoring sites. |
+| `PURSUE_THRESHOLD` | `4` | A practice only gets a full evidence package (report, demo site, draft email) if it fails **at least this many** of the 13 checks. Lower it (e.g. `2`) to pursue more leads generously; raise it (e.g. `7`) to only chase the worst-scoring sites. |
 | `MAX_LEADS` | `3` | Caps how many practices the Scout returns per run — protects against a broad query ("all dermatologists in Switzerland") accidentally triggering hundreds of audits in one go. Matches the three parallel audit workers (one worker per lead); raising it above the worker count would find leads that never get audited. |
 
 **Note on the pipeline:** the Scout itself applies no quality filter — it

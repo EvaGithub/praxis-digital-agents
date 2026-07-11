@@ -114,7 +114,7 @@ def generate_pdf_report(audit_result: dict, practice_name: str, doctor_name: str
 
     story.append(PageBreak())
 
-    story.append(Paragraph("<b>Detaillierte Ergebnisse — 12 Kriterien</b>",
+    story.append(Paragraph("<b>Detaillierte Ergebnisse — 13 Kriterien</b>",
         ParagraphStyle("dt", parent=styles["Normal"], fontSize=14, fontName="Helvetica-Bold",
                        textColor=DARK, spaceAfter=8*mm)))
 
