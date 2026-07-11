@@ -38,6 +38,8 @@ CHECK_META = {
                            "DE/EN/FR-Versionen anbieten — Ihr Team spricht die Sprachen bereits."),
     "testimonials":       ("Patientenbewertungen", "Patientenerlebnis", "info",
                            "Google-Bewertungen einbinden für sozialen Beweis."),
+    "broken_links":       ("Defekte Links", "Sicherheit & Vertrauen", "critical",
+                           "Verzeichnispfad-Fehler (wie 'httpdocs/') beheben, damit Patienten die Unterseiten aufrufen können."),
 }
 
 CATEGORIES = ["Sicherheit & Vertrauen", "Mobile & Geschwindigkeit", "Sichtbarkeit", "Patientenerlebnis"]

@@ -24,6 +24,7 @@ CHECK_SYNONYMS = {
     "contact_form": ["kontaktformular", "contact form"],
     "multilingual": ["mehrsprachig", "sprachen", "multilingual", "languages"],
     "testimonials": ["bewertungen", "testimonial", "erfahrungsberichte", "reviews"],
+    "broken_links": ["broken", "defekt", "links", "fehlerhaft", "httpdocs", "navig"],
 }
 
 NEGATIVE_MARKERS = ["fehlt", "keine", "kein ", "nicht vorhanden", "✗", "missing", "no ", "fehlende", "ohne"]

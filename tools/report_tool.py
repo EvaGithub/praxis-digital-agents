@@ -34,6 +34,7 @@ CHECK_LABELS_DE = {
     "contact_form": "Kontaktformular",
     "multilingual": "Mehrsprachigkeit",
     "testimonials": "Patientenbewertungen",
+    "broken_links": "Defekte Links",
 }
 
 GRADE_LABELS = {"A": "Ausgezeichnet", "B": "Gut", "C": "Befriedigend", "D": "Verbesserungsbedürftig", "F": "Unzureichend"}
@@ -175,6 +176,7 @@ IMPACT_SHORT = {
     "contact_form": "Kommunikation",
     "multilingual": "Internationale Patienten",
     "testimonials": "Sozialer Beweis",
+    "broken_links": "Navigationsfehler",
 }
 
 

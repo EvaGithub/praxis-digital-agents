@@ -25,8 +25,9 @@ CHECK_POINTS = {
     "contact_form": 7,
     "multilingual": 6,
     "testimonials": 4,
+    "broken_links": 8,
 }
-MAX_POINTS = sum(CHECK_POINTS.values())  # 86
+MAX_POINTS = sum(CHECK_POINTS.values())  # 94
 
 IMPACT_DE = {
     "https": "Sicherheit für Patientendaten und Google-Ranking",
@@ -34,18 +35,19 @@ IMPACT_DE = {
     "page_load": "Jede Sekunde Verzögerung kostet Besucher",
     "google_business": "Auffindbarkeit in Google Maps und lokaler Suche",
     "online_booking": "24/7 Terminvergabe entlastet die Praxis-Rezeption",
-    "update_recency": "Aktualität signalisiert eine aktive Praxis",
+    "update_recency": "Aktualität signalisiert eine active Praxis",
     "social_links": "Patientennähe und Community-Aufbau",
     "meta_description": "Sichtbarkeit in Suchmaschinen-Ergebnissen",
     "image_optimization": "Schnellere Seiten, besseres Ranking",
     "contact_form": "Niedrigschwellige Patientenkommunikation",
     "multilingual": "Zugang für internationale Patienten",
     "testimonials": "Sozialer Beweis und Vertrauensaufbau",
+    "broken_links": "Vermeidung von fehlerhaften Navigationslinks (z.B. httpdocs/)",
 }
 
 
 def run_website_audit(url: str) -> dict:
-    """Run the 12-check audit on a medical practice website.
+    """Run the 13-check audit on a medical practice website.
 
     Args:
         url: Website URL of the practice (with or without scheme).
@@ -69,6 +71,13 @@ def run_website_audit(url: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     low = html.lower()
 
+    # Broken links check: scan all a tags for invalid paths containing 'httpdocs'
+    has_broken_links = False
+    for a in soup.find_all("a", href=True):
+        if "httpdocs" in a["href"].lower():
+            has_broken_links = True
+            break
+
     checks = {
         "https": final_url.startswith("https"),
         "mobile_responsive": "viewport" in low,
@@ -82,6 +91,7 @@ def run_website_audit(url: str) -> dict:
         "contact_form": bool(soup.find("form") and soup.find("form").find_all(["input", "textarea"])),
         "multilingual": any(k in low for k in ["/en/", "/fr/", "/it/", "hreflang", "sprache", "language"]),
         "testimonials": any(k in low for k in ["testimonial", "bewertung", "erfahrung", "empfehlung", "review"]),
+        "broken_links": not has_broken_links,
     }
 
     score = sum(CHECK_POINTS[k] for k, passed in checks.items() if passed)

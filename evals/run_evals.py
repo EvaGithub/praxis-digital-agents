@@ -43,10 +43,11 @@ MOCK_AUDIT = {
         "google_business": False, "online_booking": False, "update_recency": False,
         "social_links": False, "meta_description": False, "image_optimization": True,
         "contact_form": False, "multilingual": False, "testimonials": False,
+        "broken_links": False,
     },
     "failed_checks": ["https", "mobile_responsive", "google_business", "online_booking",
                       "update_recency", "social_links", "meta_description",
-                      "contact_form", "multilingual", "testimonials"],
+                      "contact_form", "multilingual", "testimonials", "broken_links"],
 }
 
 CLAIM_CASES = [
