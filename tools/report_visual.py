@@ -54,10 +54,30 @@ SEV = {
 GRADE_COLORS = {"A": "#2E7D5B", "B": "#7FA23B", "C": "#B07818", "D": "#C1622B", "F": "#C73E3E"}
 
 
-def generate_visual_report(audit: dict, practice_name: str, doctor_name: str,
+def generate_visual_report(audit, practice_name: str, doctor_name: str,
                            specialty: str, narrative: str = "", demo_url: str = "#",
-                           legal_notes: list = None) -> dict:
+                           legal_notes=None) -> dict:
     """Generate the Semrush-style visual HTML audit report."""
+    import json
+    import ast
+    if isinstance(audit, str):
+        try:
+            audit = json.loads(audit)
+        except Exception:
+            try:
+                audit = ast.literal_eval(audit)
+            except Exception:
+                pass
+
+    if isinstance(legal_notes, str):
+        try:
+            legal_notes = json.loads(legal_notes)
+        except Exception:
+            try:
+                legal_notes = ast.literal_eval(legal_notes)
+            except Exception:
+                pass
+
     os.makedirs(OUT, exist_ok=True)
     safe = practice_name.lower().replace(" ", "-").replace("/", "-").replace("(", "").replace(")", "")
     path = os.path.join(OUT, f"report_{safe}.html")

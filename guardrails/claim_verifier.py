@@ -31,7 +31,7 @@ NEGATIVE_MARKERS = ["fehlt", "keine", "kein ", "nicht vorhanden", "✗", "missin
 POSITIVE_MARKERS = ["vorhanden", "✓", "erfüllt", "present", "aktiv", "funktioniert"]
 
 
-def verify_report_claims(report_text: str, audit_result: dict) -> dict:
+def verify_report_claims(report_text: str, audit_result) -> dict:
     """Verify that a generated report's claims match the audit ground truth.
 
     Heuristic sentence-level check: for each audit check mentioned in the
@@ -45,6 +45,17 @@ def verify_report_claims(report_text: str, audit_result: dict) -> dict:
         dict with 'passed' (bool), 'mismatches' (list), 'checked' (int),
         and 'coverage' (fraction of failed checks actually mentioned).
     """
+    import json
+    import ast
+    if isinstance(audit_result, str):
+        try:
+            audit_result = json.loads(audit_result)
+        except Exception:
+            try:
+                audit_result = ast.literal_eval(audit_result)
+            except Exception:
+                pass
+
     if audit_result.get("status") != "ok":
         return {"passed": False, "error": "no valid audit to verify against"}
 

@@ -41,7 +41,7 @@ GRADE_LABELS = {"A": "Ausgezeichnet", "B": "Gut", "C": "Befriedigend", "D": "Ver
 GRADE_COLORS = {"A": "#27AE60", "B": "#F39C12", "C": "#E67E22", "D": "#E74C3C", "F": "#C0392B"}
 
 
-def generate_pdf_report(audit_result: dict, practice_name: str, doctor_name: str,
+def generate_pdf_report(audit_result, practice_name: str, doctor_name: str,
                         specialty: str, narrative: str = "", demo_url: str = "") -> dict:
     """Generate the 2-page PDF audit report for a practice.
 
@@ -55,6 +55,17 @@ def generate_pdf_report(audit_result: dict, practice_name: str, doctor_name: str
     Returns:
         dict with 'pdf_path'.
     """
+    import json
+    import ast
+    if isinstance(audit_result, str):
+        try:
+            audit_result = json.loads(audit_result)
+        except Exception:
+            try:
+                audit_result = ast.literal_eval(audit_result)
+            except Exception:
+                pass
+
     os.makedirs(OUT, exist_ok=True)
     safe = practice_name.lower().replace(" ", "-").replace("/", "-")
     path = os.path.join(OUT, f"audit_{safe}.pdf")

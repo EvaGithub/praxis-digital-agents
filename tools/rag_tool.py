@@ -29,7 +29,7 @@ def _load_kb():
     return _KB
 
 
-def retrieve_compliance(failed_checks: list, query: str = "", top_k: int = 4) -> dict:
+def retrieve_compliance(failed_checks, query: str = "", top_k: int = 4) -> dict:
     """Retrieve the compliance obligations relevant to a practice's audit result.
 
     Args:
@@ -40,6 +40,18 @@ def retrieve_compliance(failed_checks: list, query: str = "", top_k: int = 4) ->
     Returns:
         dict with 'documents': list of {id, topic, text_de, source, score}.
     """
+    import json
+    import ast
+    if isinstance(failed_checks, str):
+        try:
+            failed_checks = json.loads(failed_checks)
+        except Exception:
+            try:
+                failed_checks = ast.literal_eval(failed_checks)
+            except Exception:
+                # Fallback: split by commas if it is a comma-separated list
+                failed_checks = [c.strip().strip("'\"[]") for c in failed_checks.split(",") if c.strip()]
+
     kb = _load_kb()
     failed = set(failed_checks or [])
     words = set(re.findall(r"\w{4,}", (query or "").lower()))
