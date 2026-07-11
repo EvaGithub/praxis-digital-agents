@@ -8,6 +8,8 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
+from guardrails.sanitizer import strip_injection
+
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
 CHECK_POINTS = {
@@ -88,6 +90,13 @@ def run_website_audit(url: str) -> dict:
 
     failed = [k for k, v in checks.items() if not v]
 
+    # The page <title> is attacker-controlled scraped text and is returned
+    # into the auditor LLM's context — scan it through the same injection
+    # filter as any other web content, so a malicious <title> cannot bypass
+    # the guardrail. (Deterministic scoring above never trusts page text.)
+    raw_title = soup.title.string.strip() if soup.title and soup.title.string else ""
+    title_scan = strip_injection(raw_title)
+
     return {
         "status": "ok",
         "url": final_url,
@@ -100,5 +109,6 @@ def run_website_audit(url: str) -> dict:
         "percentage": round(pct, 1),
         "grade": grade,
         "raw_html_length": len(html),
-        "page_title": (soup.title.string.strip() if soup.title and soup.title.string else ""),
+        "page_title": title_scan["clean"],
+        "page_title_flags": title_scan["flags"],
     }

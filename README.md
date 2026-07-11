@@ -215,7 +215,7 @@ Two values control how aggressively the system operates, both in
 | Setting | Default | What it does |
 |---|---|---|
 | `PURSUE_THRESHOLD` | `4` | A practice only gets a full evidence package (report, demo site, draft email) if it fails **at least this many** of the 12 checks. Lower it (e.g. `2`) to pursue more leads generously; raise it (e.g. `7`) to only chase the worst-scoring sites. |
-| `MAX_LEADS` | `5` | Caps how many practices the Scout returns per run — protects against a broad query ("all dermatologists in Switzerland") accidentally triggering hundreds of audits in one go. |
+| `MAX_LEADS` | `3` | Caps how many practices the Scout returns per run — protects against a broad query ("all dermatologists in Switzerland") accidentally triggering hundreds of audits in one go. Matches the three parallel audit workers (one worker per lead); raising it above the worker count would find leads that never get audited. |
 
 **Note on the pipeline:** the Scout itself applies no quality filter — it
 returns every practice it finds, good sites and bad sites alike. The
@@ -228,11 +228,18 @@ outreach draft).
 **To change them**, either edit `.env`:
 ```bash
 PURSUE_THRESHOLD=6
-MAX_LEADS=10
+MAX_LEADS=3
 ```
 or set them inline for a single run:
 ```bash
-PURSUE_THRESHOLD=6 MAX_LEADS=10 python run_demo.py
+PURSUE_THRESHOLD=6 MAX_LEADS=3 python run_demo.py
 ```
+> **Note on `MAX_LEADS` in agentic mode:** `run_demo.py` audits leads in a
+> plain loop, so it can handle any `MAX_LEADS`. But `adk web` fans out to a
+> fixed pool of **3 parallel workers** (one per lead), so there `MAX_LEADS`
+> should stay ≤ 3 — a higher value would find leads that no worker audits.
+> To scale the agentic path, add workers *and* raise the cap together.
+
+---
 
 *Built by Eva Losada Barreiro "Evidence beats pitching."*
